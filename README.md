@@ -71,5 +71,5 @@
 
 # 使用CloudBase + Nest教程
 
-我的博客文章地址：
+我的博客文章地址：[https://blog.csdn.net/qq_45593068/article/details/122961353](https://blog.csdn.net/qq_45593068/article/details/122961353)
 
