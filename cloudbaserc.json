@@ -1,0 +1,38 @@
+{
+  "version": "2.0",
+  "envId": "nest-short-url-7gcrn1kw9452ff9a",
+  "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
+  "framework": {
+    "name": "nest-starter",
+    "plugins": {
+      "node": {
+        "use": "@cloudbase/framework-plugin-node",
+        "inputs": {
+          "name": "nest-starter",
+          "path": "/nest-starter",
+          "entry": "app.js",
+          "functionOptions": {
+            "timeout": 5,
+            "envVariables": {
+              "NODE_ENV": "production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "functionRoot": "./functions",
+  "functions": [
+    {
+      "name": "nest-starter",
+      "installDependency": false,
+      "entry": "app.js",
+      "ignore": [
+        "*.md",
+        "node_modules",
+        "node_modules/**/*"
+      ]
+    }
+  ],
+  "region": "ap-shanghai"
+}
