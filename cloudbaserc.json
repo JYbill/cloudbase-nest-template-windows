@@ -29,7 +29,6 @@
       "installDependency": false,
       "entry": "app.js",
       "ignore": [
-        "*.md",
         "node_modules",
         "node_modules/**/*"
       ]
