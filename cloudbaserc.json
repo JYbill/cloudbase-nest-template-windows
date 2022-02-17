@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "envId": "{{envId}}",
+  "envId": "nest-short-url-6gcqyr4y078a1cd7",
   "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
   "framework": {
     "name": "nest-starter",
@@ -11,7 +11,7 @@
           "name": "nest-starter",
           "path": "/nest-starter",
           "entry": "app.js",
-          "buildCommand": "npm install --prefer-offline --no-audit --progress=false && npm run build",
+          "buildCommand": "npm install --prefer-offline --no-audit --progress=false npm run build",
           "functionOptions": {
             "timeout": 5,
             "envVariables": {
@@ -26,13 +26,14 @@
   "functions": [
     {
       "name": "nest-starter",
+      "runtime": "Nodejs10.15",
       "installDependency": false,
       "entry": "app.js",
       "ignore": [
-        "*.md",
         "node_modules",
         "node_modules/**/*"
       ]
     }
-  ]
+  ],
+  "region": "ap-guangzhou"
 }

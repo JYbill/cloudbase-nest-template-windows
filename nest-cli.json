@@ -3,6 +3,7 @@
   "sourceRoot": "src",
   "compilerOptions": {
     "deleteOutDir": true,
+    "webpack": false,
     "assets": [
       "**/*.html",
       "**/*.css",

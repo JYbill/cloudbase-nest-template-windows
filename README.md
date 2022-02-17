@@ -13,3 +13,16 @@
 ![image-20220217133150268](https://gitee.com/JYbill/typroa_pic/raw/master//%E5%8D%9A%E5%AE%A2/image-20220217133150268.png)
 
 + webpack：无法计算编译时间
+
+
+
+
+
+
+
+# 一键部署
+
+```js
+https://console.cloud.tencent.com/tcb/env/index?&action=CreateAndDeployCloudBaseProject&appUrl=https://github.com/JYbill/cloudbase-nest-template-windows&branch=webpack-version&appName=nest-starter
+```
+

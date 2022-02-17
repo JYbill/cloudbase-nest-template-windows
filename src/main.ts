@@ -1,4 +1,3 @@
-declare const module: any;
 import { NestFactory } from '@nestjs/core';
 import {
   ExpressAdapter,
@@ -6,6 +5,7 @@ import {
 } from '@nestjs/platform-express';
 import express from 'express';
 import { AppModule } from './app.module';
+declare const module: any;
 
 const expressApp = express();
 const adapter = new ExpressAdapter(expressApp);
@@ -43,9 +43,9 @@ if (process.env.NODE_ENV === 'development') {
     console.log(info);
   });
 }
+
 /* 
 Bug1: 
 (node:52172) [DEP_WEBPACK_MODULE_ERRORS] DeprecationWarning: Module.errors was removed (use getErrors instead)
 (Use `node --trace-deprecation ...` to show where the warning was created)
-
 */
