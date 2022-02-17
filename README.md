@@ -19,7 +19,7 @@
 
 3. 修改了`package.json`里的启动脚本信息，追加`cross-env`操作，也就是说可以上传云函数，也可以用`npm run start:prod`去服务器里跑
 
-```json
+```js
 "script": {
     // ...
     "start": "cross-env NODE_ENV=development nest start",
@@ -73,7 +73,7 @@
 
 + 简化`使用模板`
 
-```json
+```js
 // 浏览器复制粘贴即可
 https://console.cloud.tencent.com/tcb/env/index?&action=CreateAndDeployCloudBaseProject&appUrl=https://github.com/JYbill/cloudbase-nest-template-windows&branch=master&appName=nest-starter
 ```
