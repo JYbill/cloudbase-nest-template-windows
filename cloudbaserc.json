@@ -27,11 +27,12 @@
     {
       "name": "nest-starter",
       "installDependency": false,
-      "entry": "app.js",
+      "handler": "tcbindex.main",
       "ignore": [
         "node_modules",
         "node_modules/**/*"
       ]
     }
-  ]
+  ],
+  "region": "你的地域如: ap-shanghai"
 }
