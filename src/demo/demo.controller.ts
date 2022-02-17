@@ -7,7 +7,7 @@ export class DemoController {
   get() {
     return {
       code: 200,
-      msg: 'msg get 😀'
+      msg: 'webpack HRM 🚀'
     }
   }
 }
