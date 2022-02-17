@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "envId": "nest-short-url-7gcrn1kw9452ff9a",
+  "envId": "{{envId}}",
   "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
   "framework": {
     "name": "nest-starter",
@@ -34,6 +34,5 @@
         "node_modules/**/*"
       ]
     }
-  ],
-  "region": "ap-shanghai"
+  ]
 }
