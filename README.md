@@ -69,6 +69,68 @@
 
 
 
+# 一键部署方式
+
++ 简化`使用模板`
+
+```json
+// 浏览器复制粘贴即可
+https://console.cloud.tencent.com/tcb/env/index?&action=CreateAndDeployCloudBaseProject&appUrl=https://github.com/JYbill/cloudbase-nest-template-windows&branch=master&appName=nest-starter
+```
+
+
+
+# 云函数操作
+
++ tcb将项目拉去到本地
+
+  1. 创建一个`cloudbaserc.json`方便使用tcb cli
+
+  ```json
+  {
+    "version": "2.0",
+    "envId": "自己的环境ID",
+    "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
+    "functionRoot": "./functions",
+    "functions": [
+      {
+        "name": "nest-starter",
+        "installDependency": false,
+        "entry": "app.js",
+        "ignore": [
+          "node_modules",
+          "node_modules/**/*"
+        ]
+      }
+    ],
+    "region": "自己的地域如：ap-guangzhou/ap-shanghai"
+  }
+  ```
+
+  2. `tcb fn code download nest-starter`拉取`nest-starter`云函数
+
+  ![](https://gitee.com/JYbill/typroa_pic/raw/master//%E5%8D%9A%E5%AE%A2/image-20220217145731468.png)
+
+  3. 将`package copy.json`文件内容拷贝到`package.json`文件
+     `npm i -> npm run start`即可
+
+  ![](https://gitee.com/JYbill/typroa_pic/raw/master//%E5%8D%9A%E5%AE%A2/image-20220217150510485.png)
+
+  
+
+
+
++ vs code插件cloudbase toolkit拉去到本地
+
+  1. 第一步与`tcb cli`一致，新建`cloudbaserc.json`，内容复制上面的tcb第一步
+  2. 右键直接操作
+
+  <img src="C:/Users/17683/AppData/Roaming/Typora/typora-user-images/image-20220217151027214.png" style="zoom:67%;" />
+
+  4. 其他操作与tcb cli的一致
+
+  
+
 # 使用CloudBase + Nest教程
 
 我的博客文章地址：[https://blog.csdn.net/qq_45593068/article/details/122961353](https://blog.csdn.net/qq_45593068/article/details/122961353)
