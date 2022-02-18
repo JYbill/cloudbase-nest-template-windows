@@ -36,3 +36,24 @@ https://console.cloud.tencent.com/tcb/env/index?&action=CreateAndDeployCloudBase
 
 > 目前的解决办法就是：使用`npm run build` / `npm run deploy`都会使用`tsc`编译成传统的多文件包。如果我是用webpack打包的上传后serverless就会构建失败。
 > 目前问题是webpack打包后无法导出模块。
+
+
+
++ 遗留问题已解决：通过`webpack.output.library.type`设置为`commonjs`即可导出
+
+```js
+module.exports = {
+  // …
+  output: {
+    library: {
+      // name: 'MyLibrary', // 不设置即默认名称
+      type: 'commjs', // 导出类型Commonjk
+    },
+  },
+};
+```
+
+最后仍然不可以使用main.js文件，报错`serverless-http`模块resolve错误，咱还是对serverless frame不太懂，但目前来说，使用该方式开发效率`npm run dev`也有，部署方便也有`npm run deploy`，欢迎大家使用该套模板，我也会使用该模板进行云开发。
+
+> 好用的话，可以给个🌟噢，3Q了
+
