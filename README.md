@@ -109,12 +109,12 @@ https://console.cloud.tencent.com/tcb/env/index?&action=CreateAndDeployCloudBase
 
   2. `tcb fn code download nest-starter`拉取`nest-starter`云函数
 
-  ![](https://gitee.com/JYbill/typroa_pic/raw/master//%E5%8D%9A%E5%AE%A2/image-20220217145731468.png)
+  ![](https://gitee.com/JYbill/typroa_pic/raw/master/%E5%8D%9A%E5%AE%A2/image-20220217145731468.png)
 
   3. 将`package copy.json`文件内容拷贝到`package.json`文件
      `npm i -> npm run start`即可
 
-  ![](https://gitee.com/JYbill/typroa_pic/raw/master//%E5%8D%9A%E5%AE%A2/image-20220217150510485.png)
+  ![](https://gitee.com/JYbill/typroa_pic/raw/master/%E5%8D%9A%E5%AE%A2/image-20220217150510485.png)
 
   
 
@@ -129,7 +129,26 @@ https://console.cloud.tencent.com/tcb/env/index?&action=CreateAndDeployCloudBase
 
   4. 其他操作与tcb cli的一致
 
-  
+
+
+
+# 一键部署/腾讯云部署失败问题
+
++ 可能会构建失败，因为部署会根据`cloudbaserc.json`文件内的`envId`、`region`校验是否正确，这个看运气，我有成功也有失败，成功按照上面的走。
+
++ 解决：
+
+  1. 拉取仓库内容到本地
+  2. 修改`cloudbaserc.json`文件
+
+  ```json
+  "envId": "你的环境",
+  "region": "ap-你的地域"
+  ```
+
+  3. `npm run deploy`
+
+
 
 # 使用CloudBase + Nest教程
 
