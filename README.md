@@ -123,3 +123,31 @@ module.exports = {
 
 
 # npm run build事项
+
+在没有集成`webpack`时，`npm run build也就是不用webpack打包`(tsc打包打出多个文件)运行完就自动退出了。
+而`npm run build:webpack打包`打完之后会卡住，所以我在`cloudbaserc.json`文件内修改了命令行
+
+```js
+"buildCommand": "npm install --prefer-offline --no-audit --progress=false & npm run build",
+// 修改成如下, 不然部署会卡死, 报错
+"buildCommand": "npm install --prefer-offline --no-audit --progress=false"
+```
+
+所以，如果你希望用`tsc打包`
+
+```bash
+npm run build
+npm run deploy
+```
+
+用webpack打
+
+```bash
+npm run build:webpack
+# ctrl + C 退出
+npm run deploy
+
+# 或者直接npm run dev写完代码后
+npm run deploy
+```
+
