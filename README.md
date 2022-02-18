@@ -28,7 +28,7 @@ https://console.cloud.tencent.com/tcb/env/index?&action=CreateAndDeployCloudBase
 
 
 
-# 遗留问题
+# 遗留问题（已解决）
 
 使用webpack构建后打出来的main.js文件，可以直接用node.js启动`npm run prod`，但是无法通过serverless的app.js拿到编译后的main.js里导出的模块
 
@@ -47,13 +47,48 @@ module.exports = {
   output: {
     library: {
       // name: 'MyLibrary', // 不设置即默认名称
-      type: 'commjs', // 导出类型Commonjk
+      type: 'commjs2', // 导出类型Commonjs2
     },
   },
 };
 ```
 
-最后仍然不可以使用main.js文件，报错`serverless-http`模块resolve错误，咱还是对serverless frame不太懂，但目前来说，使用该方式开发效率`npm run dev`也有，部署方便也有`npm run deploy`，欢迎大家使用该套模板，我也会使用该模板进行云开发。
+上传成功，运行成功，舒舒服服。😀
 
-> 好用的话，可以给个🌟噢，3Q了
+
+
+# npm命令
+
++ `npm run dev`：使用webpack构建、打包方式，`npm run dev:tsc`传统的Tsc编译打包
++ `npm run deploy`部署到云函数
++ `npm run prod`如果想部署到自己的服务端可以用该命令，等价于`node dist/main.js`
+
+> 欢迎大家使用该套模板，我也会使用该模板进行云开发。好用的话，可以给个🌟噢，3Q了
+
+
+
+# 构建此模板遇到的Bug
+
+1. `ts-loader`问题
+
+```js
+(node:69430) [DEP_WEBPACK_MODULE_ERRORS] DeprecationWarning: Module.errors was removed (use getErrors instead)
+```
+
+解决地址：
+
++ [https://github.com/TypeStrong/ts-loader/issues/1194](https://github.com/TypeStrong/ts-loader/issues/1194)
++ [https://github.com/TypeStrong/ts-loader/pull/1195](https://github.com/TypeStrong/ts-loader/pull/1195)
+
+> 总结点：`ts-loader`版本问题，`package.json`设置版本为8.0.5即可
+
+
+
+2. webpack打包后导出问题
+
+解决地址：[https://webpack.docschina.org/configuration/output/#outputlibrarytype](https://webpack.docschina.org/configuration/output/#outputlibrarytype)
+
+
+
+3. node模块规则：使用的是`commonjs2`，不是`commonjs`，不是`commonjs`，不是`commonjs`
 

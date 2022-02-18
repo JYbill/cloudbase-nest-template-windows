@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "envId": "nest-short-url-6gcqyr4y078a1cd7",
+  "envId": "{{envId}}",
   "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
   "framework": {
     "name": "nest-webpack",
@@ -34,5 +34,5 @@
       ]
     }
   ],
-  "region": "ap-guangzhou"
+  "region": "如:ap-guangzhou"
 }

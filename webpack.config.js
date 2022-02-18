@@ -46,5 +46,10 @@ module.exports = function (options, webpack) {
         },
       }),
     ],
+    output: {
+      library: {
+        type: 'commonjs2'
+      },
+    },
   };
 };
