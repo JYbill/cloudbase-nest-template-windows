@@ -67,6 +67,24 @@ module.exports = {
 
 
 
+# 一键部署/腾讯云部署失败问题
+
++ 可能会构建失败，因为部署会根据`cloudbaserc.json`文件内的`envId`、`region`校验是否正确，这个看运气，我有成功也有失败，成功按照上面的走。
+
++ 解决：
+
+  1. 拉取仓库内容到本地
+  2. 修改`cloudbaserc.json`文件
+
+  ```json
+  "envId": "你的环境",
+  "region": "ap-你的地域"
+  ```
+
+  3. `npm run deploy`
+
+
+
 # 构建此模板遇到的Bug
 
 1. `ts-loader`问题
