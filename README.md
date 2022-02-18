@@ -54,7 +54,7 @@
 
 # 使用模板教程
 
-![QQ截图20220216125339](https://gitee.com/JYbill/typroa_pic/raw/master//%E5%8D%9A%E5%AE%A2/QQ%E6%88%AA%E5%9B%BE20220216125339.png)
+![QQ截图20220216125339](https://gitee.com/JYbill/typroa_pic/raw/master/%E5%8D%9A%E5%AE%A2/QQ%E6%88%AA%E5%9B%BE20220216125339.png)
 
 > 后续的操作我就不多说了，不懂的直接看下面的文章
 
