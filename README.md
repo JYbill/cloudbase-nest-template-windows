@@ -6,6 +6,8 @@
 
 
 
+
+
 # webpack构建的HRM热模块更新
 
 nestjs官方文档：[https://docs.nestjs.com/recipes/hot-reload](https://docs.nestjs.com/recipes/hot-reload)
@@ -20,11 +22,15 @@ nestjs官方文档：[https://docs.nestjs.com/recipes/hot-reload](https://docs.n
 
 
 
+
+
 # 一键部署
 
 ```js
 https://console.cloud.tencent.com/tcb/env/index?&action=CreateAndDeployCloudBaseProject&appUrl=https://gitee.com/JYbill/cloudbase-nest-template-windows&branch=webpack-version&appName=nest-webpack
 ```
+
+
 
 
 
@@ -57,6 +63,8 @@ module.exports = {
 
 
 
+
+
 # npm命令
 
 + `npm run dev`：使用webpack构建、打包方式，`npm run dev:tsc`传统的Tsc编译打包
@@ -64,6 +72,8 @@ module.exports = {
 + `npm run prod`如果想部署到自己的服务端可以用该命令，等价于`node dist/main.js`
 
 > 欢迎大家使用该套模板，我也会使用该模板进行云开发。好用的话，可以给个🌟噢，3Q了
+
+
 
 
 
@@ -85,6 +95,8 @@ module.exports = {
 
 
 
+
+
 # 构建此模板遇到的Bug
 
 1. `ts-loader`问题
@@ -100,13 +112,14 @@ module.exports = {
 
 > 总结点：`ts-loader`版本问题，`package.json`设置版本为8.0.5即可
 
-
-
 2. webpack打包后导出问题
 
 解决地址：[https://webpack.docschina.org/configuration/output/#outputlibrarytype](https://webpack.docschina.org/configuration/output/#outputlibrarytype)
 
-
-
 3. node模块规则：使用的是`commonjs2`，不是`commonjs`，不是`commonjs`，不是`commonjs`
 
+
+
+
+
+# npm run build事项
