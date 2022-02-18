@@ -14,6 +14,7 @@
           "buildCommand": "npm install --prefer-offline --no-audit --progress=false && npm run build",
           "functionOptions": {
             "timeout": 5,
+            "runtime": "Nodejs10.15",
             "envVariables": {
               "NODE_ENV": "production"
             }
