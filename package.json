@@ -8,9 +8,9 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
+    "listen:static": "nest start --watch",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
-    "dev:tsc": "cross-env NODE_ENV=development nest start --watch",
     "dev": "cross-env NODE_ENV=development nest build --webpack --webpackPath webpack.config.js --watch",
     "deploy": "tcb framework deploy",
     "start:debug": "nest start --debug --watch",

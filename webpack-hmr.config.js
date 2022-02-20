@@ -45,6 +45,14 @@ module.exports = function (options, webpack) {
           return false;
         },
       }),
+
+      // copy静态文件插件
+      new CopyPlugin({
+        patterns: [{
+          from: path.join(__dirname, 'src/public'),
+          to: path.join(__dirname, 'dist/public')
+        }]
+      }),
     ],
     output: {
       library: {

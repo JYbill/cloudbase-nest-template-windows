@@ -4,7 +4,7 @@
 
 这个目录是基于云开发的一个 [Nest](https://nestjs.com/) 应用示例，包含 Nest + 云函数，可以基于 **[CloudBase Framework](https://github.com/TencentCloudBase/cloudbase-framework)** 框架将项目一键部署到云开发环境
 
-
+</br>
 
 
 
@@ -20,7 +20,7 @@ nestjs官方文档：[https://docs.nestjs.com/recipes/hot-reload](https://docs.n
   > 我的电脑配置：lntelR CoreTM i5-10210U CPU @1.60GHz / 16G内存 3200MHZ / 固态硬盘
   > 我觉得webpack一套丝滑小连招后，俩字：舒服😀
 
-
+</br>
 
 
 
@@ -30,11 +30,50 @@ nestjs官方文档：[https://docs.nestjs.com/recipes/hot-reload](https://docs.n
 https://console.cloud.tencent.com/tcb/env/index?&action=CreateAndDeployCloudBaseProject&appUrl=https://gitee.com/JYbill/cloudbase-nest-template-windows&branch=webpack-version&appName=nest-webpack
 ```
 
+</br>
 
 
 
 
-# 遗留问题（已解决）
+
+# npm命令
+
++ `npm run dev`：使用webpack构建、打包方式
++ `npm run deploy`部署到云函数
++ `npm run prod`如果想部署到自己的服务端可以用该命令，等价于`node dist/main.js`
++ `npm run listen:static`监听`nest-cli.json`配置的静态文件，如果未来起此功能，就无法监听静态文件
+
+> 欢迎大家使用该套模板，我也会使用该模板进行云开发。好用的话，可以给个🌟噢，3Q了
+
+</br>
+
+
+
+# 一键部署/腾讯云部署失败问题
+
++ 可能会构建失败，因为部署会根据`cloudbaserc.json`文件内的`envId`、`region`校验是否正确，这个看运气，我有成功也有失败，成功按照上面的走。
+
++ 解决：
+
+  1. 拉取仓库内容到本地
+  2. 修改`cloudbaserc.json`文件
+
+  ```json
+  "envId": "你的环境",
+  "region": "ap-你的地域"
+  ```
+
+  3. `npm run deploy`
+
+</br>
+
+
+
+# TODO日志
+
+</br>
+
+## 遗留问题（已解决）
 
 使用webpack构建后打出来的main.js文件，可以直接用node.js启动`npm run prod`，但是无法通过serverless的app.js拿到编译后的main.js里导出的模块
 
@@ -61,43 +100,11 @@ module.exports = {
 
 上传成功，运行成功，舒舒服服。😀
 
+</br>
 
 
 
-
-# npm命令
-
-+ `npm run dev`：使用webpack构建、打包方式，`npm run dev:tsc`传统的Tsc编译打包
-+ `npm run deploy`部署到云函数
-+ `npm run prod`如果想部署到自己的服务端可以用该命令，等价于`node dist/main.js`
-
-> 欢迎大家使用该套模板，我也会使用该模板进行云开发。好用的话，可以给个🌟噢，3Q了
-
-
-
-
-
-# 一键部署/腾讯云部署失败问题
-
-+ 可能会构建失败，因为部署会根据`cloudbaserc.json`文件内的`envId`、`region`校验是否正确，这个看运气，我有成功也有失败，成功按照上面的走。
-
-+ 解决：
-
-  1. 拉取仓库内容到本地
-  2. 修改`cloudbaserc.json`文件
-
-  ```json
-  "envId": "你的环境",
-  "region": "ap-你的地域"
-  ```
-
-  3. `npm run deploy`
-
-
-
-
-
-# 构建此模板遇到的Bug
+## 构建此模板遇到的Bug(已解决)
 
 1. `ts-loader`问题
 
@@ -118,36 +125,4 @@ module.exports = {
 
 3. node模块规则：使用的是`commonjs2`，不是`commonjs`，不是`commonjs`，不是`commonjs`
 
-
-
-
-
-# npm run build事项
-
-在没有集成`webpack`时，`npm run build也就是不用webpack打包`(tsc打包打出多个文件)运行完就自动退出了。
-而`npm run build:webpack打包`打完之后会卡住，所以我在`cloudbaserc.json`文件内修改了命令行
-
-```js
-"buildCommand": "npm install --prefer-offline --no-audit --progress=false & npm run build",
-// 修改成如下, 不然部署会卡死, 报错
-"buildCommand": "npm install --prefer-offline --no-audit --progress=false"
-```
-
-所以，如果你希望用`tsc打包`
-
-```bash
-npm run build
-npm run deploy
-```
-
-用webpack打
-
-```bash
-npm run build:webpack
-# ctrl + C 退出
-npm run deploy
-
-# 或者直接npm run dev写完代码后
-npm run deploy
-```
-
+</br>
