@@ -7,8 +7,8 @@
     "assets": [
       "**/*.html",
       "**/*.css",
-      "template/**",
-      "assets/**"
+      "template/**/*",
+      "assets/**/*"
     ],
     "watchAssets": true
   }
