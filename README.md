@@ -69,6 +69,15 @@ https://console.cloud.tencent.com/tcb/env/index?&action=CreateAndDeployCloudBase
 
 
 
+# 基本使用
+
+1. 启动：`npm run dev`（webpack HMR热模块替换启动）
+2. 服务器运行：`npm run start:prod`
+
+
+
+
+
 # TODO日志
 
 </br>
