@@ -100,7 +100,7 @@ https://console.cloud.tencent.com/tcb/env/index?&action=CreateAndDeployCloudBase
 
 使用webpack构建后打出来的main.js文件，可以直接用node.js启动`npm run prod`，但是无法通过serverless的app.js拿到编译后的main.js里导出的模块
 
-![image-20220217231247507](https://gitee.com/JYbill/typroa_pic/raw/master/%E5%8D%9A%E5%AE%A2/image-20220217231247507.png)
+![](https://gitee.com/JYbill/typroa_pic/raw/master/%E5%8D%9A%E5%AE%A2/image-20220217231247507.png)
 
 > 目前的解决办法就是：使用`npm run build` / `npm run deploy`都会使用`tsc`编译成传统的多文件包。如果我是用webpack打包的上传后serverless就会构建失败。
 > 目前问题是webpack打包后无法导出模块。
