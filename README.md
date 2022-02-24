@@ -74,7 +74,21 @@ https://console.cloud.tencent.com/tcb/env/index?&action=CreateAndDeployCloudBase
 1. 启动：`npm run dev`（webpack HMR热模块替换启动）
 2. 服务器运行：`npm run start:prod`
 
+</br>
 
+# 模板内容
+1. 模板controller、service
+2. 全局异常过滤器
+3. 日志中间件
+4. `result`返回结果vo类
+5. `utils`自己封装的util,以及业务相关的result工具类(未填写,根据需要使用)
+6. 整合yaml、`@nest/config`
+7. aop拦截器, 根据需要使用或者不使用(main.ts使用的全局拦截器)
+8. constants目录, 静态常量, 有需要enum自己加(软编码)
+9. public目录, 存放静态文件, 只存放了`favicon.ico`
+10. 全局添加了DTO校验, 使用参考`result.vo.ts`和`nest官网的validation`以及`class-validator GitHub`官网, 甚至这些校验不都不用, 使用自定义的`pipe`去处理一些逻辑, 不过更推荐`class-validator`也就是本模板使用的
+
+</br>
 
 
 

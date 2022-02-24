@@ -1,3 +1,5 @@
+import { ConfigKeyConstant } from './constants/config.constant';
+import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import {
   ExpressAdapter,
@@ -5,11 +7,18 @@ import {
 } from '@nestjs/platform-express';
 import express from 'express';
 import { AppModule } from './app.module';
+import { HttpExceptionFilter } from './common/exception/global.exception';
+import { join } from 'path';
+import { ValidationPipe } from '@nestjs/common';
+import { AopInterceptor } from './common/interceptor/aop.interceptor';
 declare const module: any;
 
 const expressApp = express();
 const adapter = new ExpressAdapter(expressApp);
-const port = process.env.PORT || 5000;
+
+// 默认项目配置
+let projectName = 'app';
+let port = 5000;
 
 export async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(
@@ -17,10 +26,29 @@ export async function bootstrap() {
     adapter,
   );
 
+  // 配置加载
+  const configService = app.get(ConfigService);
+  const application = configService.get(ConfigKeyConstant.app);
+  port = application[ConfigKeyConstant.port] || port;
+  projectName = application[ConfigKeyConstant.project] || projectName;
+
   // 隐藏 x-powered-by: express header
   app.disable('x-powered-by');
 
-  if (process.env.NODE_ENV === 'development') { // local本地/普通服务器开发
+  // 全局校验器
+  app.useGlobalPipes(new ValidationPipe());
+
+  // 全局异常过滤器
+  app.useGlobalFilters(new HttpExceptionFilter());
+
+  // 开放静态文件
+  app.useStaticAssets(join(__dirname, 'public'), { prefix: '/' });
+
+  // 全局日志AOP拦截器
+  // app.useGlobalInterceptors(new AopInterceptor());
+
+  // local本地/普通服务器开发
+  if (process.env.NODE_ENV === 'development') {
     await app.listen(port);
 
     // HRM热更新
@@ -37,15 +65,9 @@ export async function bootstrap() {
 
 // 本地开发模式下启动开发
 if (process.env.NODE_ENV === 'development') {
-  let info = `listen on http://localhost:${port}`;
-  info = module.hot ? 'webpack HRM ' + info : 'Tsc App ' + info;
   bootstrap().then(() => {
+    let info = `listen on http://localhost:${port}`;
+    info = module.hot ? `${projectName} webpack HRM ${info}` : `${projectName} Tsc App ${info}`;
     console.log(info);
   });
 }
-
-/* 
-Bug1: 
-(node:52172) [DEP_WEBPACK_MODULE_ERRORS] DeprecationWarning: Module.errors was removed (use getErrors instead)
-(Use `node --trace-deprecation ...` to show where the warning was created)
-*/

@@ -1,0 +1,12 @@
+# app相关配置
+app:
+  project: short-url
+  port: 3000
+
+# 腾讯云配置
+cloudBase: 
+  # env: 环境envId
+  # region: "ap-地域"
+  # secretId: 这个怎么可能给你呢
+  # secretKey: 这个更不可能了❗
+  
