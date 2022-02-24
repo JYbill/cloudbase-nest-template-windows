@@ -11,23 +11,15 @@ const path = require('path');
  * Tips: 此文件仅包含webpack HRM hot reload module热模块更新, 详情查看nest官方文档
  */
 module.exports = {
-  entry: ['webpack/hot/poll?100', './src/main.ts'],
-  target: 'node',
-  externals: [
-    nodeExternals({
-      allowlist: ['webpack/hot/poll?100'],
-    }),
-  ],
+  entry: [...webpackCommonConfig.entry, 'webpack/hot/poll?100'],
+  target: webpackCommonConfig.target,
+  externals: webpackCommonConfig.externals,
   module: {
-    rules: [{
-      test: /.tsx?$/,
-      use: 'ts-loader',
-      exclude: /node_modules/,
-    }],
+    rules: [...webpackCommonConfig.module.rules],
   },
   mode: 'development',
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: [...webpackCommonConfig.resolve.extensions],
   },
   plugins: [
     // 公共插件
