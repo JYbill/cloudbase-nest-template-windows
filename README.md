@@ -79,7 +79,7 @@ https://console.cloud.tencent.com/tcb/env/index?&action=CreateAndDeployCloudBase
 # 模板内容
 1. 模板controller、service
 2. 全局异常过滤器
-3. 日志中间件
+3. 日志AOP拦截器
 4. `result`返回结果vo类
 5. `utils`自己封装的util,以及业务相关的result工具类(未填写,根据需要使用)
 6. 整合yaml、`@nest/config`

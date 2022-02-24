@@ -3,23 +3,19 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 @Injectable()
-export class AopInterceptor implements NestInterceptor {
-
+export class LoggerInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
-    const ctx = context.switchToHttp();
-    const req = ctx.getRequest();
+    const start = +new Date();
+    const req = context.switchToHttp().getRequest();
+    const { method, originalUrl } = req;
 
-    // 执行所有的接口方法前
-    // TODO
-
-    const ret = next
-      .handle()
-      .pipe(
-        tap(() => console.log('end')));
-
-    // 执行方法后...
-    // TODO
-
-    return ret;
+    // 打印日志
+    console.log(`==================  ${method} ${originalUrl}请求开始  ==================`);
+    console.log('params: ', req.params);
+    console.log('query: ', req.query);
+    console.log('body: ', req.body);
+    return next.handle().pipe(tap(
+      () => console.log(`==================  ${method} ${originalUrl}请求耗时: ${+new Date() - start}ms  ==================\n`)
+    ));
   }
 }

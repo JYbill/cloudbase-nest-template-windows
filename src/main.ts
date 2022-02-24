@@ -10,7 +10,7 @@ import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './common/exception/global.exception';
 import { join } from 'path';
 import { ValidationPipe } from '@nestjs/common';
-import { AopInterceptor } from './common/interceptor/aop.interceptor';
+import { LoggerInterceptor } from './common/interceptor/aop.interceptor';
 declare const module: any;
 
 const expressApp = express();
@@ -45,7 +45,7 @@ export async function bootstrap() {
   app.useStaticAssets(join(__dirname, 'public'), { prefix: '/' });
 
   // 全局日志AOP拦截器
-  // app.useGlobalInterceptors(new AopInterceptor());
+  app.useGlobalInterceptors(new LoggerInterceptor());
 
   // local本地/普通服务器开发
   if (process.env.NODE_ENV === 'development') {

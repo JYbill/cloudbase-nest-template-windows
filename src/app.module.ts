@@ -1,7 +1,6 @@
 import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { DBModule } from './common/db/db.module';
-import { LoggerMiddleware } from './common/middleware/logger.middleware';
 import { RefuseMiddleware } from './common/middleware/refuse.middleware';
 import devConfig from './config/config.dev';
 import { ConvertModule } from './modules/convert/convert.module';
@@ -24,8 +23,5 @@ export class AppModule implements NestModule {
     // consumer
     //   .apply(RefuseMiddleware)
     //   .forRoutes('/test')
-
-    consumer.apply(LoggerMiddleware)
-      .forRoutes('*')
   }
 }
