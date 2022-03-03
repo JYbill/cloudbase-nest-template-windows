@@ -1,3 +1,5 @@
+> 如果本模板对大家有帮助到，希望大家能施舍一个小星星给我这个大四的菜狗🐕, ✨✨✨
+
 <a href="https://github.com/TencentCloudBase/cloudbase-templates"><img src="https://main.qcloudimg.com/raw/79fdd61df8b2154ccaa479301fcc57a6.png"></a>
 
 # Nest-webpack构建版
