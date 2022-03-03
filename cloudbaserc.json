@@ -12,6 +12,11 @@
           "path": "/nest-webpack",
           "entry": "app.js",
           "buildCommand": "npm install --prefer-offline --no-audit --progress=false && npm run build",
+          "ignore": [
+            "node_modules",
+            "node_modules/**",
+            ".git*"
+          ],
           "functionOptions": {
             "timeout": 5,
             "runtime": "Nodejs10.15",
@@ -32,7 +37,8 @@
       "handler": "tcbindex.main",
       "ignore": [
         "node_modules",
-        "node_modules/**"
+        "node_modules/**",
+        ".git*"
       ]
     }
   ],
